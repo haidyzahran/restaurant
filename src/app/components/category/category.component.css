@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    direction: rtl;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;    
+    width: 100%;
+    min-height: 100vh;
+    background: #f4f4f4;    
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    background: #000;
+}
+
+/* Utility Classes */
+.primary-text {
+    color: #c3704d;
+}
+
+/* ---- initial-block ---- */
+
+.initial-block {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 12rem;
+}
+
+.initial-block img {
+    width: 50px;
+    cursor: pointer;
+    display: inline-block;
+    transition: .5s;
+}
+.initial-block img:hover {
+    transform: scale(1.2);
+}
+
+/* ---- back btn ---- */
+
+.back-btn {
+    display: inline-block;
+    transition: .5s;
+}
+.back-btn i {
+    color: #c3704d;
+    font-size: 27px;
+    transition: .5s;
+}
+.back-btn i:hover {
+    transform: scale(1.2);
+}
+
+
+
+/* --- menu --- */
+h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 20px 5px 40px;
+    color: #383848;
+    padding: 9px;
+}
+.menu-content {
+    width: 95%;
+    margin: auto;
+    padding: 40px 0;
+    direction: rtl;
+    
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 700px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+.menu-content .note {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 25px 2px;
+    color: #c3704d;
+    padding: 9px;
+    box-shadow: 0 0 15px #f5f5f5;
+    
+}
+.all-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+
+}
+.card {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border: none;
+    color: #383848;
+    box-shadow: 0 0 40px #b3b3b3;
+    cursor: pointer;
+    transition: .5s;
+}
+.card:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.card img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    flex-shrink: 0; 
+    border-radius: 8px; 
+}
+
+.card .card-right p {
+   font-size: 12px;
+   margin: 4px 0;
+}
+.card .card-right .price-span {
+   font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; 
+    gap: 20px;
+    color: #c3704d;
+
+}
+.card .card-right .price-span div {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+
+
+/* Animationn ts */
+.card-rtl {
+  opacity: 0;
+  transform: translateX(-160px);
+  transition: all 0.6s ease-out;
+}
+.card-rtl.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.card-up {
+  transform: translateY(100px); 
+  opacity: 0;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+.card-up.visible {
+  transform: translateY(0); 
+  opacity: 1;
+}
+
+
+.card-zoom-in {
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 1s ease-out, opacity 1s ease-out;
+}
+.card-zoom-in.visible {
+  transform: scale(1);
+  opacity: 1;
+}

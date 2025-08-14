@@ -1,0 +1,245 @@
+
+<body>
+    <!-- ---- Header ---- -->
+    <header id="home" [style.background-image]="'url(assets/images/contact.jpeg)'">
+        <div id="navbar">
+            <img [routerLink]="['/home']" src="assets/images/logo-burger.png" alt="Food Logo">
+
+
+            <nav>
+
+                <i class="fa" [ngClass]="isMenuOpen ? 'fa-close' : 'fa-bars'" (click)="toggleMenu()"></i>
+                
+                <ul [class.open]="isMenuOpen">
+                    <li><a (click)="scrollToSection('home')" [routerLink]="['/home']">الرئيسية</a></li>
+                    <li><a (click)="scrollToSection('about')">احنا مين</a></li>
+                    <li><a (click)="scrollToSection('menu')">قائمة الطعام</a></li>
+                    <li><a (click)="scrollToSection('gallery')">المعرض</a></li>
+                    <li><a (click)="scrollToSection('contact')">تواصل معنا</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content">
+            <h1>مرحبا بكم في مطعم  <span class="primary-text">طعم ولون</span></h1>
+            <p>استمتع بأشهى المشويات الطازجة، البطاطس المقرمشة، الكريبات الشهية، والوجبات التي ترضي جميع الأذواق</p>
+            <a href="https://wa.me/201002208377" target="_blank" class="btns btn-prim">تواصل معنا علي واتساب</a>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- ---- about ---- -->
+        <section id="about">
+            <div class="container">
+
+                <div class="title">
+                    <h2>مطعم طعم ولون</h2>
+                    <p>أكثر من 11 سنة خبرة في عالم المذاق</p>
+                </div>
+
+                <div class="about-content">
+                    <div>
+                        <p>بدأنا رحلتنا بشغف كبير لتقديم أشهى وأجود المأكولات، من المشويات الطازجة إلى البطاطس المقرمشة والكريبات الشهية. نؤمن أن الطعام ليس مجرد وجبة، بل تجربة تحمل معها الذكريات والنكهات التي تبقى في القلب.</p>
+                        <p>في <strong>طعم ولون</strong>، نحرص على استخدام أجود المكونات الطازجة مع لمسات خاصة تجعل كل طبق فريد من نوعه. هدفنا أن نقدم لك تجربة لا تُنسى مع كل لقمة.</p>
+                        <a (click)="scrollToSection('menu')" class="btns btn-second">قائمة الطعام</a>
+                    </div>
+          
+                    <div class="about-imgs card-up">
+
+                        <div class="right-imgs">
+                            <img src="assets/images/about1.jpg" alt="Pizza">
+                            <img src="assets/images/about2.jpg" alt="Pizza">
+                        </div>
+                        <div class="left-imgs">
+                            <img src="assets/images/about3.jpg" alt="Pizza">
+                            <img src="assets/images/about4.jpg" alt="Pizza">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- ---- offers ---- -->
+        <section id="offers" [style.background]="'url(assets/images/offer-background.jpg) center center / cover fixed'">
+            <div class="container">
+
+                <div class="title">
+                    <h2>عروضنا المميزة</h2>
+                    <p>استمتع بأشهى الأطباق بأفضل الأسعار</p>
+                </div>
+
+                <div class="offers-items">
+                    <div class="card-zoom-in">
+                        <img src="assets/images/offer1.jpg" alt="Quattro Pasta">
+                        <div>
+                            <h3>وجبة مشويات مشكلة</h3>
+                            <p>تشكيلة من الكباب، الكفتة، والشيش طاووق مع البطاطس المقرمشة والسلطات الطازجة.</p>
+                            <p><del>150 ج.م</del> <span class="primary-text">149 ج.م</span></p>
+                        </div>
+                    </div>
+          
+                    <div class="card-zoom-in">
+                        <img src="assets/images/offer2.jpg" alt="Vegertarian Pasta">
+                        <div>
+                            <h3>كريب دجاج مشوي</h3>
+                            <p>كريب محشو بقطع الدجاج المتبلة والمشوية مع الجبن الذائب وصلصة خاصة.</p>
+                            <p><del>150 ج.م</del> <span class="primary-text">95 ج.م</span></p>
+                        </div>
+                    </div>
+          
+                    <div class="card-zoom-in">
+                        <img src="assets/images/offer3.jpg" alt="Gluten-Free Pasta">
+                        <div>
+                            <h3>بطاطس شيبس بالجبن</h3>
+                            <p>بطاطس مقرمشة مغطاة بطبقة سخية من الجبن المذاب مع التوابل المميزة.</p>
+                            <p><del>80 ج.م</del> <span class="primary-text">50 ج.م</span></p>
+                        </div>
+                    </div>
+          
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ---- menu ---- -->
+        <section id="menu">
+            <div class="container">
+
+                <div class="title">
+                    <h2>أقسام الطعام</h2>
+                    <p>اطلب ثلاثة وخد الرابع هدية</p>
+                </div>
+
+                <div class="menu-items">
+
+                    <div class="menu-item card-rtl" *ngFor="let category of menu" [routerLink]="['/category', category.title]">
+                        <img [src]="category.catImg || 'assets/images/food1.jpg'">
+                        <h4>{{ category.title }}</h4>
+
+                    </div>
+
+                </div> 
+
+            </div>
+        </section>
+
+
+
+
+
+        <!-- ---- gallery ---- -->
+        <section id="gallery" [style.background]="'url(assets/images/offer-background.jpg) center center / cover no-repeat'">
+            <div class="container">
+
+                <h2>صور لبعض من طعامنا</h2>
+            
+                <div class="img-gallery">
+                    <img class="card-up" src="assets/images/gallery1.jpg" alt="Gallery">
+                    <img class="card-up" src="assets/images/gallery2.jpg" alt="Gallery">
+                    <img class="card-up" src="assets/images/gallery3.jpg" alt="Gallery">
+                    <img class="card-up" src="assets/images/gallery4.jpg" alt="Gallery">
+                    <img class="card-up" src="assets/images/gallery5.jpg" alt="Gallery">
+                    <img class="card-up" src="assets/images/gallery6.jpg" alt="Gallery">
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- ---- testimonials ---- -->
+        <section id="testimonials">
+           <div class="container">
+
+            <div class="title">
+                <h2>آراء عملائنا</h2>
+                <p>بعض من أراء عملائنا علي فيس بوك</p>
+            </div>
+            
+            
+
+            <div class="row">
+
+                <div class="item">
+                    <img class="card-up" src="assets/images/person1.jpg" alt="">
+                    <h3>نور ابراهيم</h3>
+                    <p>أفضل مطعم جربته! الأكل طعمه لذيذ جدًا والخدمة ممتازة، أكيد هكرر الزيارة قريب.</p>
+                </div>
+                <div class="item">
+                    <img class="card-up" src="assets/images/person2.jpg" alt="">
+                    <h3>محمد أحمد</h3>
+                    <p>التجربة كانت رائعة، الأجواء مريحة والطعام طازج ولذيذ، أنصح الجميع بزيارته.</p>
+                </div>
+                <div class="item">
+                    <img class="card-up" src="assets/images/person3.jpg" alt="">
+                    <h3>سعد سليم</h3>
+                    <p>الخدمة سريعة وفريق العمل ودود جدًا، والأسعار مناسبة مقارنة بالجودة العالية.</p>
+                </div>
+            </div>
+
+           </div>
+        </section>
+
+    
+
+
+        <!-- ---- contact ---- -->
+        <section id="contact"  [style.background]="'url(assets/images/contact-bg.png) center center / cover fixed no-repeat'">
+            <div class="container">
+
+                <div class="contact-content">
+
+                    <div class="contact-info">
+                        <div>
+                            <h4>العنوان</h4>
+                            <p><i class="fa-solid fa-location-dot" style="font-size: 19px;"></i>الحصري، 6 أكتوبر، مصر</p>
+                            <p><i class="fa-solid fa-phone"></i>الهاتف: 012012012012</p>
+                            <p><i class="fa-solid fa-envelope"></i>tasteandcolor&#64;gmail.com </p>
+                        </div>
+                        <div>
+                            <h4>مواعيد عملنا</h4>
+                            <p>من السبت للخميس : 8 ص حتي 11 م</p>
+                            <p>يوم الجمعة : 1 م حتي 11 م</p>
+                        </div>
+                        <div>
+                            <h4>حساباتنا</h4>
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15270.237365751882!2d42.60602336134565!3d16.897679330192744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1607e300351a7eb5%3A0xa34ec3d3f161b976!2z2LfYudmFINmI2YTZiNmGINmE2KrZgtiv2YrZhSDYp9mE2YXYtNix2YjYqNin2Kog2KjYrdmKINin2YTZhtiz2YrZhQ!5e0!3m2!1sar!2seg!4v1755182489578!5m2!1sar!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </section>
+
+
+    </main>
+
+
+    <!-- ---- Footer ---- -->
+    <footer id="footer">
+     
+        <p>Copyright &copy; 2025 All rights reserved | Made by <b><a href="https://github.com/haidyzahran" target="_blank"> H.Z</a></b></p>
+    
+    </footer>
+
+
+
+
+</body>

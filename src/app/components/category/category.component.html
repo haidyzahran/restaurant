@@ -1,0 +1,42 @@
+<body>
+  <div class="initial-block">
+    <img class="card-zoom-in" [routerLink]="['/home']" src="assets/images/logo-burger.png" alt="Food Logo">
+
+    <div class="row d-flex">
+      <div class="back-container">
+        <a (click)="BackToMenu()" class="back-btn card-zoom-in"><i class="fa fa-backward"></i></a>
+      </div>
+    </div>
+
+  </div>
+    
+  <!-- ----- menu ----- -->
+  <section class="menu-content">
+
+    <div class="row">
+      <h3 class="primary-text">{{ title }}</h3>   
+
+      <div class="all-cards">
+
+        <div class="card card-rtl" *ngFor="let item of category.items">
+          <img [src]="item.imgUrl || 'assets/images/food1.jpeg'">
+          <div class="card-right">
+            <h6>{{ item.name }}</h6>
+            <p>{{ item.description }}</p>
+
+            <div class="price-span">
+              <div *ngFor="let key of keys(item.price)">
+                {{ key === '' ? 'سعر' : key }} 
+                <span>{{ (item.price)[key] }} </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="note" *ngIf="category.note">{{ category.note }}</p>
+    </div>
+
+  </section>
+
+</body>
